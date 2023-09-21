@@ -18,32 +18,50 @@ import { RiCustomerService2Fill } from "react-icons/ri";
 import { FiLogOut } from "react-icons/fi";
 import { RxHamburgerMenu } from "react-icons/rx";
 import { GoGraph } from "react-icons/go";
+import { Route, Routes, useNavigate } from "react-router-dom";
+import Dashboard from "./Pages/Dashboard/Dashboard";
 
 type Menu = { onClick?: () => void; title: string; icon: React.ReactNode };
 
 function App() {
+  const navigate = useNavigate();
   const username = "tester";
   const email = "tester@email.com";
   const projectId = "askfjoiawefjasdfmzcxweaf";
 
   const menu: Menu[] = [
     {
+      onClick: () => {
+        navigate("/");
+      },
       title: "Dashboard",
       icon: <BiSolidDashboard />,
     },
     {
+      onClick: () => {
+        navigate("/pos");
+      },
       title: "PoS",
       icon: <FaCashRegister />,
     },
     {
+      onClick: () => {
+        navigate("/inventory");
+      },
       title: "Inventory",
       icon: <FaWarehouse />,
     },
     {
+      onClick: () => {
+        navigate("/employee");
+      },
       title: "Employee",
       icon: <BiSolidGroup />,
     },
     {
+      onClick: () => {
+        navigate("/report");
+      },
       title: "Report",
       icon: <GoGraph />,
     },
@@ -58,10 +76,16 @@ function App() {
       icon: <RiCustomerService2Fill />,
     },
     {
+      onClick: () => {
+        navigate("/setting");
+      },
       title: "Setting",
       icon: <AiFillSetting />,
     },
     {
+      onClick: () => {
+        navigate("/");
+      },
       title: "Logout",
       icon: <FiLogOut />,
     },
@@ -105,20 +129,16 @@ function App() {
 
         <Box
           w="100%"
-          // display="flex"
-          // justifyContent={"center"}
-          // alignItems={"center"}
           className={classes.webContent}
           overflowY="auto"
           maxH="100vh"
           pt={["3.5rem", "0", "0", "0", "0", "0"]}
         >
           <Box w="100%" h="100%">
-            Web Content
+            <Routes>
+              <Route path="/" element={<Dashboard />} />
+            </Routes>
           </Box>
-          {/* <Box w="100%" h="500px" bg="red.100"></Box>
-          <Box w="100%" h="500px" bg="red.50"></Box>
-          <Box w="100%" h="500px" bg="red.200"></Box> */}
         </Box>
       </Box>
     </Box>
