@@ -29,15 +29,18 @@
     div {
       cursor: pointer;
       position: relative;
-      transition: all 0.2s;
+      border-right: 2px solid #fff0;
+      transition: all 0.3s;
       padding: 1rem;
       display: flex;
       align-items: center;
-      //   margin: 0.5rem;
       padding-left: 2rem;
-      //   border: 1px solid;
       svg {
         margin-right: 0.5rem;
+      }
+      &.currentPage {
+        background: #aaa3;
+        border-right: 2px solid #fff;
       }
       &::before {
         content: ">>";

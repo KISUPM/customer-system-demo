@@ -20,8 +20,15 @@ import { RxHamburgerMenu } from "react-icons/rx";
 import { GoGraph } from "react-icons/go";
 import { Route, Routes, useNavigate } from "react-router-dom";
 import Dashboard from "./Pages/Dashboard/Dashboard";
+import { useEffect } from "react";
+import "./App.scss";
 
-type Menu = { onClick?: () => void; title: string; icon: React.ReactNode };
+type Menu = {
+  onClick?: () => void;
+  title: string;
+  icon: React.ReactNode;
+  path?: string;
+};
 
 function App() {
   const navigate = useNavigate();
@@ -29,11 +36,17 @@ function App() {
   const email = "tester@email.com";
   const projectId = "askfjoiawefjasdfmzcxweaf";
 
+  const path = location.pathname;
+  useEffect(() => {
+    console.log(path);
+  }, [path]);
+
   const menu: Menu[] = [
     {
       onClick: () => {
         navigate("/");
       },
+      path: "/",
       title: "Dashboard",
       icon: <BiSolidDashboard />,
     },
@@ -42,6 +55,7 @@ function App() {
         navigate("/pos");
       },
       title: "PoS",
+      path: "/pos",
       icon: <FaCashRegister />,
     },
     {
@@ -49,6 +63,7 @@ function App() {
         navigate("/inventory");
       },
       title: "Inventory",
+      path: "/inventory",
       icon: <FaWarehouse />,
     },
     {
@@ -56,6 +71,7 @@ function App() {
         navigate("/employee");
       },
       title: "Employee",
+      path: "/employee",
       icon: <BiSolidGroup />,
     },
     {
@@ -63,6 +79,7 @@ function App() {
         navigate("/report");
       },
       title: "Report",
+      path: "/report",
       icon: <GoGraph />,
     },
     {
@@ -80,6 +97,7 @@ function App() {
         navigate("/setting");
       },
       title: "Setting",
+      path: "/setting",
       icon: <AiFillSetting />,
     },
     {
@@ -118,7 +136,13 @@ function App() {
           <Box className={classes.navPanel}>
             {menu.map((m, index) => {
               return (
-                <Box key={index} onClick={m.onClick}>
+                <Box
+                  key={index}
+                  onClick={m.onClick}
+                  className={
+                    m.path && m.path === path ? classes.currentPage : ""
+                  }
+                >
                   {m.icon}
                   <Text className={classes.navText}>{m.title}</Text>
                 </Box>
