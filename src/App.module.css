@@ -1,8 +1,17 @@
 @import url("https://fonts.googleapis.com/css2?family=Prompt:wght@300&display=swap");
 .navBar {
-  font-family: "Prompt", sans-serif;
   min-width: max-content;
   user-select: none;
+}
+.navBar::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+.navBar::-webkit-scrollbar-thumb {
+  background: #000;
+}
+.navBar::-webkit-scrollbar-track {
+  background: #888;
 }
 .navBar .logo {
   text-align: center;
@@ -45,6 +54,30 @@
 .webContent {
   font-family: "Prompt", sans-serif;
   background: #343434;
+}
+.webContent::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+.webContent::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.3333333333);
+}
+.webContent::-webkit-scrollbar-track {
+  background: rgba(136, 136, 136, 0.3333333333);
+}
+
+.navPanelDrawer {
+  margin-top: 3rem;
+}
+.navPanelDrawer div {
+  display: flex;
+  align-items: center;
+  border: 1px solid;
+  padding: 0.5rem;
+  margin: 1rem auto;
+}
+.navPanelDrawer div svg {
+  margin-right: 0.5rem;
 }
 
 /*# sourceMappingURL=App.module.css.map */

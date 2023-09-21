@@ -19,77 +19,106 @@ import { FiLogOut } from "react-icons/fi";
 import { RxHamburgerMenu } from "react-icons/rx";
 import { GoGraph } from "react-icons/go";
 
+type Menu = { onClick?: () => void; title: string; icon: React.ReactNode };
+
 function App() {
   const username = "tester";
   const email = "tester@email.com";
   const projectId = "askfjoiawefjasdfmzcxweaf";
 
+  const menu: Menu[] = [
+    {
+      title: "Dashboard",
+      icon: <BiSolidDashboard />,
+    },
+    {
+      title: "PoS",
+      icon: <FaCashRegister />,
+    },
+    {
+      title: "Inventory",
+      icon: <FaWarehouse />,
+    },
+    {
+      title: "Employee",
+      icon: <BiSolidGroup />,
+    },
+    {
+      title: "Report",
+      icon: <GoGraph />,
+    },
+    {
+      onClick: () => {
+        window.open(
+          `https://crafting-ticket-dev.web.app/?username=${username}&email=${email}&projectId=${projectId}`,
+          "_blank"
+        );
+      },
+      title: "แจ้งปัญหา",
+      icon: <RiCustomerService2Fill />,
+    },
+    {
+      title: "Setting",
+      icon: <AiFillSetting />,
+    },
+    {
+      title: "Logout",
+      icon: <FiLogOut />,
+    },
+  ];
+
   return (
     <Box w="100vw" h="100dvh" bg="#232323" color="#fff">
       <Box
-        display={["block", "none", "none", "none", "none", "none"]}
+        position="fixed"
+        top="0px"
+        display={["flex", "none", "none", "none", "none", "none"]}
         w="100%"
         p="0.5rem"
+        bg="#000"
       >
-        <MenuSidebar />
+        <MenuDrawer menu={menu} />
+        <Heading textAlign={"center"} w="full">
+          Brand Logo
+        </Heading>
       </Box>
-      <Box w="100%" flex={"auto"} h="full" overflow="auto" display="flex">
+      <Box w="100%" flex={"auto"} h="100%" overflow="auto" display="flex">
         <Box
           w="15%"
           className={classes.navBar}
+          h="100%"
+          overflowY={"auto"}
           display={["none", "block", "block", "block", "block", "block"]}
         >
           <Heading className={classes.logo}>Brand Logo</Heading>
           <Box className={classes.navPanel}>
-            <Box>
-              <BiSolidDashboard />
-              <Text className={classes.navText}>Dashboard</Text>
-            </Box>
-            <Box>
-              <FaCashRegister />
-              <Text className={classes.navText}>PoS</Text>
-            </Box>
-            <Box>
-              <FaWarehouse />
-              <Text className={classes.navText}>Inventory</Text>
-            </Box>
-            <Box>
-              <BiSolidGroup />
-              <Text className={classes.navText}>Employee</Text>
-            </Box>
-            <Box>
-              <GoGraph />
-              <Text className={classes.navText}>Report</Text>
-            </Box>
-            <Box
-              onClick={() => {
-                window.open(
-                  `https://crafting-ticket-dev.web.app/?username=${username}&email=${email}&projectId=${projectId}`,
-                  "_blank"
-                );
-              }}
-            >
-              <RiCustomerService2Fill />
-              <Text className={classes.navText}>แจ้งปัญหา</Text>
-            </Box>
-            <Box>
-              <AiFillSetting />
-              <Text className={classes.navText}>Setting</Text>
-            </Box>
-            <Box>
-              <FiLogOut />
-              <Text className={classes.navText}>Logout</Text>
-            </Box>
+            {menu.map((m, index) => {
+              return (
+                <Box key={index} onClick={m.onClick}>
+                  {m.icon}
+                  <Text className={classes.navText}>{m.title}</Text>
+                </Box>
+              );
+            })}
           </Box>
         </Box>
+
         <Box
           w="100%"
-          display="flex"
-          justifyContent={"center"}
-          alignItems={"center"}
+          // display="flex"
+          // justifyContent={"center"}
+          // alignItems={"center"}
           className={classes.webContent}
+          overflowY="auto"
+          maxH="100vh"
+          pt={["3.5rem", "0", "0", "0", "0", "0"]}
         >
-          Web Content
+          <Box w="100%" h="100%">
+            Web Content
+          </Box>
+          {/* <Box w="100%" h="500px" bg="red.100"></Box>
+          <Box w="100%" h="500px" bg="red.50"></Box>
+          <Box w="100%" h="500px" bg="red.200"></Box> */}
         </Box>
       </Box>
     </Box>
@@ -98,8 +127,12 @@ function App() {
 
 export default App;
 
-const MenuSidebar: React.FC = () => {
+interface MenuDrawerProps {
+  menu: Menu[];
+}
+const MenuDrawer: React.FC<MenuDrawerProps> = (props) => {
   const { isOpen, onOpen, onClose } = useDisclosure();
+  const menu = props.menu;
   return (
     <>
       <Button
@@ -115,9 +148,21 @@ const MenuSidebar: React.FC = () => {
 
       <Drawer isOpen={isOpen} placement="left" onClose={onClose}>
         <DrawerOverlay />
-        <DrawerContent bg="#333">
-          <DrawerCloseButton color="#fff" />
-          <DrawerBody></DrawerBody>
+        <DrawerContent bg="#333" color="#fff">
+          <DrawerCloseButton />
+          <DrawerBody className={classes.navPanelDrawer}>
+            <Heading fontFamily={"inherit"} textAlign={"center"}>
+              Menu
+            </Heading>
+            {menu.map((i, index) => {
+              return (
+                <Box key={index} onClick={i.onClick}>
+                  {i.icon}
+                  {i.title}
+                </Box>
+              );
+            })}
+          </DrawerBody>
         </DrawerContent>
       </Drawer>
     </>
