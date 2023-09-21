@@ -1,0 +1,50 @@
+@import url("https://fonts.googleapis.com/css2?family=Prompt:wght@300&display=swap");
+.navBar {
+  font-family: "Prompt", sans-serif;
+  min-width: max-content;
+  user-select: none;
+}
+.navBar .logo {
+  text-align: center;
+  font-family: inherit;
+  padding: 1rem;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+.navBar .logo:hover {
+  text-shadow: 0px 0px 30px #fff;
+}
+.navBar .navPanel div {
+  cursor: pointer;
+  position: relative;
+  transition: all 0.2s;
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+  padding-left: 2rem;
+}
+.navBar .navPanel div svg {
+  margin-right: 0.5rem;
+}
+.navBar .navPanel div::before {
+  content: ">>";
+  margin-right: 0.5rem;
+  opacity: 0;
+  transition: all 0.3s;
+}
+.navBar .navPanel div:hover {
+  padding-left: 3rem;
+  background: rgba(170, 170, 170, 0.3333333333);
+}
+.navBar .navPanel div:hover::before {
+  content: ">>";
+  margin-right: 0.5rem;
+  opacity: 1;
+}
+
+.webContent {
+  font-family: "Prompt", sans-serif;
+  background: #343434;
+}
+
+/*# sourceMappingURL=App.module.css.map */
