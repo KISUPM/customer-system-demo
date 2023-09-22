@@ -21,6 +21,11 @@ import { GoGraph } from "react-icons/go";
 import { Route, Routes, useNavigate } from "react-router-dom";
 import Dashboard from "./Pages/Dashboard/Dashboard";
 import "./App.scss";
+import Pos from "./Pages/PoS/Pos";
+import Inventory from "./Pages/Inventory/Inventory";
+import Employee from "./Pages/Employee/Employee";
+import Report from "./Pages/Report/Report";
+import Setting from "./Pages/Setting/Setting";
 
 type Menu = {
   onClick?: () => void;
@@ -115,7 +120,7 @@ function App() {
         p="0.5rem"
         bg="#000"
       >
-        <MenuDrawer menu={menu} />
+        <MenuDrawer menu={menu} path={path} />
         <Heading textAlign={"center"} w="full">
           Brand Logo
         </Heading>
@@ -154,9 +159,14 @@ function App() {
           maxH="100vh"
           pt={["3.5rem", "0", "0", "0", "0", "0"]}
         >
-          <Box w="100%" h="100%">
+          <Box w="100%" h="100%" p="1rem">
             <Routes>
               <Route path="/" element={<Dashboard />} />
+              <Route path="/pos" element={<Pos />} />
+              <Route path="/inventory" element={<Inventory />} />
+              <Route path="/employee" element={<Employee />} />
+              <Route path="/report" element={<Report />} />
+              <Route path="/setting" element={<Setting />} />
             </Routes>
           </Box>
         </Box>
@@ -169,10 +179,11 @@ export default App;
 
 interface MenuDrawerProps {
   menu: Menu[];
+  path: string;
 }
 const MenuDrawer: React.FC<MenuDrawerProps> = (props) => {
   const { isOpen, onOpen, onClose } = useDisclosure();
-  const menu = props.menu;
+  const { menu, path } = props;
   return (
     <>
       <Button
@@ -196,7 +207,11 @@ const MenuDrawer: React.FC<MenuDrawerProps> = (props) => {
             </Heading>
             {menu.map((i, index) => {
               return (
-                <Box key={index} onClick={i.onClick}>
+                <Box
+                  key={index}
+                  onClick={i.onClick}
+                  bg={path === i.path ? "#aaa5" : "#0000"}
+                >
                   {i.icon}
                   {i.title}
                 </Box>

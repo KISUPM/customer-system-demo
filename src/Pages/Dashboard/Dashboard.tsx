@@ -153,7 +153,7 @@ const Dashboard: React.FC = () => {
   }, []);
 
   return (
-    <Box w="100%" h="100%" p="1rem">
+    <Box w="100%" h="100%">
       <Heading fontFamily={"inherit"} mb="1rem">
         Dashboard
       </Heading>
