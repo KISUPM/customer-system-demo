@@ -1,0 +1,8 @@
+.itemCard {
+  border: 1px solid rgba(170, 170, 170, 0.3333333333);
+  border-radius: 16px;
+  overflow: hidden;
+  transition: all 0.3s;
+}
+
+/*# sourceMappingURL=Inventory.module.css.map */

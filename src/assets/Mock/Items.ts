@@ -1,0 +1,198 @@
+export type Item = {
+  img?: string;
+  title: string;
+  price: number;
+  stock: number;
+  category: string;
+};
+const mockItems: Item[] = [
+  {
+    img: "http://t1.gstatic.com/licensed-image?q=tbn:ANd9GcR4yRqIfaVBIF9J9kW0Dw4Th4wgdN3nnqwgk-WXpp6W0hE8FvOxM1sKmSD5yuumC03eqqTekSxmPU0dOzaRTg8",
+    title: "Pen",
+    price: 1.99,
+    stock: 100,
+    category: "Office Supplies",
+  },
+  {
+    title: "Notebook",
+    price: 3.99,
+    stock: 75,
+    category: "Office Supplies",
+    img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQL5YSVXRAYvqFm3H5hFqfhSnYQjkExvCbrFQ&usqp=CAU",
+  },
+  { title: "Backpack A", price: 29.99, stock: 50, category: "Backpacks" },
+  {
+    title: "Water Bottle",
+    price: 5.99,
+    stock: 80,
+    category: "Kitchen & Dining",
+  },
+  { title: "Laptop", price: 899.99, stock: 30, category: "Electronics" },
+  { title: "T-shirt", price: 12.99, stock: 120, category: "Clothing" },
+  { title: "Sneakers", price: 49.99, stock: 40, category: "Footwear" },
+  { title: "Headphones", price: 29.99, stock: 60, category: "Electronics" },
+  {
+    title: "Coffee Mug",
+    price: 4.99,
+    stock: 90,
+    category: "Kitchen & Dining",
+  },
+  { title: "Desk Lamp", price: 19.99, stock: 35, category: "Home Decor" },
+  { title: "Umbrella", price: 7.99, stock: 55, category: "Outdoor Gear" },
+  { title: "Sunglasses", price: 14.99, stock: 25, category: "Accessories" },
+  { title: "Wristwatch", price: 39.99, stock: 20, category: "Accessories" },
+  { title: "Notepad", price: 2.99, stock: 70, category: "Office Supplies" },
+  { title: "Toothbrush", price: 1.49, stock: 110, category: "Personal Care" },
+  { title: "Shampoo", price: 7.49, stock: 45, category: "Personal Care" },
+  { title: "Handbag", price: 24.99, stock: 40, category: "Accessories" },
+  { title: "Plant Pot", price: 8.99, stock: 30, category: "Home Decor" },
+  {
+    title: "Yoga Mat",
+    price: 15.99,
+    stock: 25,
+    category: "Fitness & Sports",
+  },
+  {
+    title: "Stainless Steel Flask",
+    price: 12.99,
+    stock: 50,
+    category: "Kitchen & Dining",
+  },
+  {
+    title: "Calculator",
+    price: 9.99,
+    stock: 40,
+    category: "Office Supplies",
+  },
+  { title: "Backpack B", price: 34.99, stock: 35, category: "Backpacks" },
+  {
+    title: "Reusable Grocery Bag",
+    price: 2.49,
+    stock: 90,
+    category: "Home & Kitchen",
+  },
+  {
+    title: "Coffee Maker",
+    price: 49.99,
+    stock: 25,
+    category: "Kitchen Appliances",
+  },
+  { title: "Running Shoes", price: 59.99, stock: 30, category: "Footwear" },
+  { title: "Laptop Bag", price: 19.99, stock: 50, category: "Accessories" },
+  {
+    title: "Wireless Mouse",
+    price: 12.99,
+    stock: 60,
+    category: "Electronics",
+  },
+  { title: "Dress Shirt", price: 24.99, stock: 70, category: "Clothing" },
+  {
+    title: "Water Filter Pitcher",
+    price: 14.99,
+    stock: 45,
+    category: "Kitchen & Dining",
+  },
+  {
+    title: "Desk Organizer",
+    price: 8.99,
+    stock: 55,
+    category: "Office Supplies",
+  },
+  {
+    title: "Hiking Boots",
+    price: 79.99,
+    stock: 20,
+    category: "Outdoor Gear",
+  },
+  { title: "Sweatpants", price: 19.99, stock: 80, category: "Clothing" },
+  {
+    title: "Bluetooth Speaker",
+    price: 29.99,
+    stock: 40,
+    category: "Electronics",
+  },
+  {
+    title: "Tennis Racket",
+    price: 29.99,
+    stock: 30,
+    category: "Sports & Recreation",
+  },
+  { title: "Pillow", price: 12.99, stock: 60, category: "Bedding" },
+  {
+    title: "Art Supplies Set",
+    price: 19.99,
+    stock: 50,
+    category: "Arts & Crafts",
+  },
+  {
+    title: "Kitchen Knife Set",
+    price: 24.99,
+    stock: 40,
+    category: "Kitchen & Dining",
+  },
+  { title: "Alarm Clock", price: 7.99, stock: 75, category: "Home Decor" },
+  {
+    title: "Yoga Blocks",
+    price: 8.99,
+    stock: 40,
+    category: "Fitness & Sports",
+  },
+  { title: "Candles", price: 5.99, stock: 100, category: "Home Decor" },
+  {
+    title: "Camping Tent",
+    price: 79.99,
+    stock: 15,
+    category: "Outdoor Gear",
+  },
+  {
+    title: "Smartphone Case",
+    price: 9.99,
+    stock: 70,
+    category: "Accessories",
+  },
+  {
+    title: "Fitness Tracker",
+    price: 39.99,
+    stock: 30,
+    category: "Electronics",
+  },
+  {
+    title: "Sunscreen Lotion",
+    price: 4.99,
+    stock: 90,
+    category: "Personal Care",
+  },
+  {
+    title: "Garden Hose",
+    price: 19.99,
+    stock: 35,
+    category: "Outdoor & Gardening",
+  },
+  { title: "Teapot", price: 14.99, stock: 60, category: "Kitchen & Dining" },
+  {
+    title: "Running Shorts",
+    price: 12.99,
+    stock: 45,
+    category: "Fitness Apparel",
+  },
+  {
+    title: "Hand Sanitizer",
+    price: 2.99,
+    stock: 100,
+    category: "Health & Wellness",
+  },
+  {
+    title: "Tennis Balls",
+    price: 4.99,
+    stock: 80,
+    category: "Sports & Recreation",
+  },
+  {
+    title: "Shower Curtain",
+    price: 9.99,
+    stock: 40,
+    category: "Bathroom Accessories",
+  },
+];
+
+export default mockItems;

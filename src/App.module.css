@@ -65,10 +65,10 @@
   height: 5px;
 }
 .webContent::-webkit-scrollbar-thumb {
-  background: rgba(0, 0, 0, 0.3333333333);
+  background: rgba(136, 136, 136, 0.3333333333);
 }
 .webContent::-webkit-scrollbar-track {
-  background: rgba(136, 136, 136, 0.3333333333);
+  background: rgba(0, 0, 0, 0.3333333333);
 }
 
 .navPanelDrawer {
