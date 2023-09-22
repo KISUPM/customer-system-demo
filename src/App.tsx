@@ -20,7 +20,6 @@ import { RxHamburgerMenu } from "react-icons/rx";
 import { GoGraph } from "react-icons/go";
 import { Route, Routes, useNavigate } from "react-router-dom";
 import Dashboard from "./Pages/Dashboard/Dashboard";
-import { useEffect } from "react";
 import "./App.scss";
 
 type Menu = {
@@ -37,9 +36,6 @@ function App() {
   const projectId = "askfjoiawefjasdfmzcxweaf";
 
   const path = location.pathname;
-  useEffect(() => {
-    console.log(path);
-  }, [path]);
 
   const menu: Menu[] = [
     {

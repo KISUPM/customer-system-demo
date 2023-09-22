@@ -1,8 +1,10 @@
 .statCard {
   border: 1px solid #aaa5;
   padding: 1rem;
+  padding-bottom: 0rem;
   border-radius: 16px;
   animation: fadeUp 0.3s linear 1;
+  height: fit-content;
   transition: box-shadow 0.3s;
   cursor: pointer;
 
